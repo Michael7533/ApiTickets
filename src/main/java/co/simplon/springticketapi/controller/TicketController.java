@@ -32,6 +32,5 @@ public class TicketController {
     @RequestMapping("/{id}")
     public Ticket deleteTicket(@PathVariable Long id) {ticketDao.delete(id); return null;}
 
-    @PostMapping("/{id}")
-    public Ticket updateTicket(@PathVariable Long id) {ticketDao.update(id); return null;}
+
 }

@@ -20,18 +20,23 @@ public class TicketDao implements Dao<Ticket> {
 
     @Override
     public Ticket get(Long id) {
-        return jdbcTemplate.queryForObject("select * from ticket where id = ?", ticketRowMapper, id);
+        return jdbcTemplate.queryForObject("select * from ticket where id = ?",
+                ticketRowMapper, id);
     }
 
     @Override
     public List<Ticket> getAll() {
-        return jdbcTemplate.query("select * from ticket", ticketRowMapper);
+        return jdbcTemplate.query("select * from ticket",
+                ticketRowMapper);
     }
 
     @Override
     public void save(Ticket ticket) {
         jdbcTemplate.execute("INSERT INTO ticket (date , content , learnerid, solved) " +
-                "VALUES ('" + ticket.getDate() + "','" + ticket.getContent() + "','" + ticket.getLearnerid() + "','" + ticket.getSolved() + "')");
+                "VALUES ('" + ticket.getDate() + "','" +
+                "" + ticket.getContent() + "','" +
+                "" + ticket.getLearnerid() + "','" +
+                "" + ticket.getSolved() + "')");
         }
 
     @Override
@@ -40,8 +45,8 @@ public class TicketDao implements Dao<Ticket> {
     }
 
     @Override
-
-    public void update(Long id) {
-        jdbcTemplate.execute("UPDATE ticket SET solved = true where id = '" + id +"'");}
+    public void update(Long id, Ticket ticket){
+        jdbcTemplate.update("UPDATE ticket set solved = true where id = '\" + id +\"'");
+    }
 
 }

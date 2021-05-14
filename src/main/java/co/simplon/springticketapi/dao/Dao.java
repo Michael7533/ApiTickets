@@ -39,5 +39,5 @@ public interface Dao<T> {
      * @param id l'identifiant de l'objet à passer en "solved".
      */
 
-    void update(Long id);
+    void update(Long id,T t);
 }
