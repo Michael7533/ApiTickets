@@ -1,7 +1,6 @@
 package co.simplon.springticketapi.controller;
 
 import co.simplon.springticketapi.dao.TicketDao;
-import co.simplon.springticketapi.model.Learner;
 import co.simplon.springticketapi.model.Ticket;
 import org.springframework.web.bind.annotation.*;
 

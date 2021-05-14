@@ -4,7 +4,6 @@ import co.simplon.springticketapi.dao.LearnerDao;
 
 import co.simplon.springticketapi.model.Learner;
 
-import co.simplon.springticketapi.model.Ticket;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
