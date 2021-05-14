@@ -50,7 +50,9 @@ public class LearnerDao implements Dao<Learner> {
     @Override
     public void update(Long id, Learner learner){
         System.out.println(learner);
-        jdbcTemplate.update("UPDATE learner set name = ?, promo = ? where id = ?", learner.getName(), learner.getPromo(), id);
+        jdbcTemplate.update("UPDATE learner set name = ?, promo = ? where id = ?",
+                learner.getName(),
+                learner.getPromo(), id);
     }
 
 }
