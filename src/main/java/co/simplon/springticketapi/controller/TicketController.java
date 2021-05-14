@@ -2,10 +2,7 @@ package co.simplon.springticketapi.controller;
 
 import co.simplon.springticketapi.dao.TicketDao;
 import co.simplon.springticketapi.model.Ticket;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,4 +25,13 @@ public class TicketController {
     public Ticket getTicket(@PathVariable Long id) {
         return ticketDao.get(id);
     }
+
+    @PostMapping
+    public Ticket postTicket(@RequestBody Ticket ticket) { ticketDao.save(ticket); return null; }
+
+    @RequestMapping("/{id}")
+    public Ticket deleteTicket(@PathVariable Long id) {ticketDao.delete(id); return null;}
+
+    @PostMapping("/{id}")
+    public Ticket updateTicket(@PathVariable Long id) {ticketDao.update(id); return null;}
 }

@@ -30,11 +30,18 @@ public class TicketDao implements Dao<Ticket> {
 
     @Override
     public void save(Ticket ticket) {
-        // A vous de jouer
-    }
+        jdbcTemplate.execute("INSERT INTO ticket (date , content , learnerid, solved) " +
+                "VALUES ('" + ticket.getDate() + "','" + ticket.getContent() + "','" + ticket.getLearnerid() + "','" + ticket.getSolved() + "')");
+        }
 
     @Override
     public void delete(Long id) {
-        // A vous de jouer
+        jdbcTemplate.execute("DELETE from ticket where id = '" + id +"'");
     }
+
+    @Override
+
+    public void update(Long id) {
+        jdbcTemplate.execute("UPDATE ticket SET solved = true where id = '" + id +"'");}
+
 }

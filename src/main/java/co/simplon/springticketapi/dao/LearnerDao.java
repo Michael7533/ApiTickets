@@ -29,4 +29,9 @@ public class LearnerDao implements Dao<Learner> {
     public void delete(Long id) {
         // A vous de jouer
     }
+
+    @Override
+    public void update(Long id) {
+        //A moi de jouer
+    }
 }
