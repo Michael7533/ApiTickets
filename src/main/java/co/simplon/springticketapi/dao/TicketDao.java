@@ -4,7 +4,9 @@ import co.simplon.springticketapi.model.Ticket;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import java.sql.ResultSet;
 import java.util.List;
 
 @Component
@@ -25,8 +27,10 @@ public class TicketDao implements Dao<Ticket> {
     }
 
     @Override
+    // que ceux qui sont resolus:
+
     public List<Ticket> getAll() {
-        return jdbcTemplate.query("select * from ticket",
+        return jdbcTemplate.query("select * from ticket where solved = false",
                 ticketRowMapper);
     }
 
@@ -37,6 +41,9 @@ public class TicketDao implements Dao<Ticket> {
                 "" + ticket.getContent() + "','" +
                 "" + ticket.getLearnerid() + "','" +
                 "" + ticket.getSolved() + "')");
+
+        //recuperation de l id:
+
         }
 
     @Override
