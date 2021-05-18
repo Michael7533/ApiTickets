@@ -35,3 +35,5 @@ public class TicketController {
     @PutMapping("/{id}")
     public Ticket updateTicket(@PathVariable Long id, @RequestBody Ticket ticket) {ticketDao.update(id, ticket); return null;}
 }
+
+// requete sql pour les moyennes de temps de resolution : select avg(datesolved - date) from ticket where solved = true

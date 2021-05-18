@@ -1,40 +1,40 @@
 package co.simplon.springticketapi.controller;
 
+import co.simplon.springticketapi.dao.ClassRoomDao;
 import co.simplon.springticketapi.dao.LearnerDao;
-
+import co.simplon.springticketapi.model.ClassRoom;
 import co.simplon.springticketapi.model.Learner;
-
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/api/learner")
+@RequestMapping("/api/ClassRoom")
 @RestController
-public class LeanerController {
+public class ClassRoomController {
 
-    private final LearnerDao learnerDao;
+    private final ClassRoomDao classRoomDao;
 
-    public LeanerController(LearnerDao learnerDao) {
-        this.learnerDao = learnerDao;
+    public ClassRoomController(ClassRoomDao classRoomDao) {
+        this.classRoomDao = classRoomDao;
     }
 
     @GetMapping
-    public List<Learner> getAllLearners() {
-        return learnerDao.getAll();
+    public List<ClassRoom> getAllClassRoom() {
+        return classRoomDao.getAll();
     }
 
     @GetMapping("/{id}")
-    public Learner getLearner(@PathVariable Long id) {
-        return learnerDao.get(id);
+    public ClassRoom getClassRoom(@PathVariable Long id) {
+        return classRoomDao.get(id);
     }
 
     @PostMapping
-    public Learner postLearner(@RequestBody Learner learner) { learnerDao.save(learner); return null; }
+    public ClassRoom postClassRoom(@RequestBody ClassRoom classRoom) { classRoomDao.save(classRoom); return null; }
 
     @DeleteMapping("/{id}")
-    public Learner deleteLearner(@PathVariable Long id) {learnerDao.delete(id); return null;}
+    public ClassRoom deleteClassRoom(@PathVariable Long id) {classRoomDao.delete(id); return null;}
 
-    @PutMapping("/{id}")
-    public Learner updateLearner(@PathVariable Long id,@RequestBody Learner learner) {learnerDao.update(id, learner); return null;}
-
+ /*   @PutMapping("/{id}")
+    public ClassRoom updateClassRoom(@PathVariable Long id,@RequestBody ClassRoom classRoom) {ClassRoomDao.update(id, classRoom); return null;}
+*/
 }
